@@ -178,13 +178,52 @@ public class Java8Programme {
         //New employee collection
         List<Employee> employees = EmployeeCollection.employees();
 
+        // find the count of male and female staff
+        Map<String, Long> groupByGender = employees.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+        System.out.println(groupByGender);
+
+        // List all male and female staff
+        Map<String, List<Employee>> groupAndListGender = employees.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.toList()));
+        System.out.println(groupAndListGender);
+
+        //find all department name
+        List<String> deptName = employees.stream().map(Employee::getDepartment).distinct().toList();
+        System.out.println(deptName);
+
+        //Gender wise average age
+        Map<String, Double> averageAge = employees.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingInt(Employee::getAge)));
+        System.out.println(averageAge);
+
+        //find max salary
+        Optional<Employee> maxSal = employees.stream().max(Comparator.comparingDouble(Employee::getSalary));
+        maxSal.ifPresent(System.out::println);
+
+        //find minimum sal
+        Optional<Employee> minSal = employees.stream().min(Comparator.comparingDouble(Employee::getSalary));
+        minSal.ifPresent(System.out::println);
 
 
+        //dept wise staff
+        Map<String, Long> depWiseNumberOfStaff = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+        System.out.println(depWiseNumberOfStaff);
 
+        // Average sal of each dept
+        Map<String, Double> depWiseAverageSal = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)));
+        System.out.println(depWiseAverageSal);
 
+        // Youngest Female emp from HR dept
+        String gender = "Female";
+        String dept = "HR";
+        Optional<Employee> youngerStaff = employees.stream()
+                .filter(e -> e.getDepartment().equalsIgnoreCase(dept))
+                .filter(e -> e.getGender().equalsIgnoreCase(gender))
+                .min(Comparator.comparing(Employee::getAge));
 
+        youngerStaff.ifPresent(System.out::println);
 
-
+        // find youngest in all dept
+        Optional<Employee> youngestAge = employees.stream().min(Comparator.comparing(Employee::getAge));
+        youngestAge.ifPresent(System.out::println);
 
 
 
