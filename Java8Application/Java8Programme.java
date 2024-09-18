@@ -127,6 +127,57 @@ public class Java8Programme {
         List<String> evenLengthBookNames = books.stream().map(Book::getName).filter(b -> b.length() % 2 == 0).toList();
         System.out.println(evenLengthBookNames);
 
+        //Find books start with P
+        List<String> startWithP = books.stream().map(Book::getName).filter(b -> b.startsWith("P")).toList();
+        System.out.println(startWithP);
+
+
+        List<User> users = Arrays.asList(
+                new User(1, "Arjoo", 100),
+                new User(2, "Michel", 100),
+                new User(3, "Pawan", 50),
+                new User(4, "Ajay", 50),
+                new User(3, "Apple", 20),
+                new User(3, "Banana", 50)
+
+        );
+
+        //find total salary
+        long totalSalary = users.stream().map(User::getSalary).reduce(Integer::sum).get();
+        System.out.println(totalSalary);
+
+        //sum of salary based on dept
+        Map<Integer, Integer> deptWiseSalary = users.stream().collect(Collectors.groupingBy(User::getDeptId, Collectors.summingInt(User::getSalary)));
+        System.out.println(deptWiseSalary);
+
+        //dept wise employee
+        Map<Integer, List<User>> deptWiseEmp = users.stream().collect(Collectors.groupingBy(User::getDeptId, Collectors.toList()));
+        System.out.println(deptWiseEmp);
+
+        // Join employee
+        String emp = users.stream().map(User::getName).collect(Collectors.joining("-"));
+        System.out.println(emp);
+
+        //count employee
+        long empCount = users.stream().count();
+        System.out.println(empCount);
+
+        //Sort emp by name
+        List<String> sortedEmp = users.stream().map(User::getName).sorted(String::compareTo).toList();
+        System.out.println(sortedEmp);
+
+        //Sort emp by name in reverse order
+        List<String> sortedEmpReverse = users.stream().map(User::getName).sorted(Collections.reverseOrder()).toList();
+        System.out.println(sortedEmpReverse);
+
+        // Uppercase name
+        List<String> upperCaseName = users.stream().map(User::getName).map(String::toUpperCase).toList();
+        System.out.println(upperCaseName);
+
+
+        //New employee collection
+        List<Employee> employees = EmployeeCollection.employees();
+
 
 
 
