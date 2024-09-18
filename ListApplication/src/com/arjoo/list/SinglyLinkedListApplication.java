@@ -109,8 +109,7 @@ class SinglyLinkedListApplication<E> {
         head = null;
     }
 
-    public boolean contains(Object o) {
-        E e = (E)o;
+    public boolean contains(E e) {
         Node<E> temp = head;
         while (temp != null) {
             if(temp.value.equals(e)) {
