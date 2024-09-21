@@ -226,6 +226,51 @@ public class Java8Programme {
         youngestAge.ifPresent(System.out::println);
 
 
+        Map<String, Integer> keyValue = new HashMap<>();
+        keyValue.put("A", 10);
+        keyValue.put("B", 4);
+        keyValue.put("D", 3);
+        keyValue.put("C", 9);
+
+        // Sort by value using java 7 syntax
+        Set<Map.Entry<String, Integer>> entrySet = keyValue.entrySet();
+        List<Map.Entry<String, Integer>> keyValuesList = new ArrayList<>(entrySet);
+        keyValuesList.sort((e1, e2) -> {
+            if(Objects.equals(e1.getValue(), e2.getValue()))
+                return 0;
+            return e2.getValue().compareTo(e1.getValue());
+        });
+
+        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> e :keyValuesList) {
+            linkedHashMap.put(e.getKey(), e.getValue());
+        }
+        System.out.println(linkedHashMap);
+
+        //Sort by value java 8 syntax using inbuilt method
+        keyValue.entrySet().stream().sorted(Map.Entry.comparingByValue())
+                .forEach(System.out::println);
+
+
+        //Sort by value java 8 syntax using comparator
+        keyValue.entrySet().stream().sorted((e1, e2) -> {
+            if(Objects.equals(e1.getValue(), e2.getValue()))
+                return 0;
+            return e2.getValue().compareTo(e1.getValue());
+        }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (k1, k2) -> k1, LinkedHashMap::new))
+                .forEach((k,v)-> System.out.println(k+"="+v));
+
+        System.out.println("-----------------");
+        //find First non-repeated
+        String str = "indian";
+        Map.Entry<Character, Long> characterLongEntry = str.chars()
+                .mapToObj(c -> Character.valueOf((char) c))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(e -> e.getValue() == 1L).findFirst().get();
+        System.out.println(characterLongEntry);
+
 
     }
 }
