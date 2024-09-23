@@ -87,31 +87,7 @@ public class ArrayProgramme {
 
     }
 
-    public int[] quickSort(int[] arr, int l, int r) {
-        if (l < r) {
-            int partition = partition(arr, l, r);
-            quickSort(arr, l, partition - 1);
-            quickSort(arr, partition + 1, r);
-        }
-        return arr;
-    }
 
-    private int partition(int[] arr, int l, int r) {
-        int pivot = arr[r];
-        int i = l -1;
-        for(int j = l; j < r; j++) {
-            if(arr[j] <= pivot) {
-                i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        int temp = arr[i+1];
-        arr[i+1] = arr[r];
-        arr[r] = temp;
-        return i+1;
-    }
 
 
 }
