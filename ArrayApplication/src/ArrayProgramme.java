@@ -49,46 +49,69 @@ public class ArrayProgramme {
     }
 
     public int[] mergeSort(int[] arr, int l, int r) {
-        if(l<r) {
-            int mid = (l + r) /2;
+        if (l < r) {
+            int mid = (l + r) / 2;
             mergeSort(arr, l, mid);
-            mergeSort(arr, mid +1, r);
+            mergeSort(arr, mid + 1, r);
             merge(arr, l, mid, r);
         }
         return arr;
     }
 
     private void merge(int[] arr, int l, int mid, int r) {
-        int n1 = mid -l + 1;
-        int n2 = r -mid;
+        int n1 = mid - l + 1;
+        int n2 = r - mid;
         int[] left = new int[n1];
         int[] right = new int[n2];
-        for(int i=0; i<n1; i++) {
-            left[i] = arr[l +i];
+        for (int i = 0; i < n1; i++) {
+            left[i] = arr[l + i];
         }
 
-        for(int i=0; i<n2; i++) {
-            right[i] = arr[mid + 1 +i];
+        for (int i = 0; i < n2; i++) {
+            right[i] = arr[mid + 1 + i];
         }
 
-        int i=0, j=0, k=l;
-        while (i<n1 && j<n2) {
-            if(left[i] < right[j])
+        int i = 0, j = 0, k = l;
+        while (i < n1 && j < n2) {
+            if (left[i] < right[j])
                 arr[k++] = left[i++];
             else
                 arr[k++] = right[j++];
         }
 
-        while (i<n1)
+        while (i < n1)
             arr[k++] = left[i++];
 
-        while (j<n2)
+        while (j < n2)
             arr[k++] = right[j++];
 
     }
 
     public int[] quickSort(int[] arr, int l, int r) {
-
+        if (l < r) {
+            int partition = partition(arr, l, r);
+            quickSort(arr, l, partition - 1);
+            quickSort(arr, partition + 1, r);
+        }
         return arr;
     }
+
+    private int partition(int[] arr, int l, int r) {
+        int pivot = arr[r];
+        int i = l -1;
+        for(int j = l; j < r; j++) {
+            if(arr[j] <= pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int temp = arr[i+1];
+        arr[i+1] = arr[r];
+        arr[r] = temp;
+        return i+1;
+    }
+
+
 }
