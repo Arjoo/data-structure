@@ -152,11 +152,28 @@ class SinglyLinkedListApplication<E> {
         return -1;
     }
 
+    public void printInReverseOrder() {
+        Node<E> temp = head;
+        printInReverseOrder(temp);
+    }
+
+    private void printInReverseOrder(Node<E> head) {
+        if(head == null) {
+            return;
+        }
+        printInReverseOrder(head.next);
+        System.out.print(head.value + ", ");
+    }
+
+
+
+
     public void print() {
         Node<E> temp = head;
         while (temp != null) {
             System.out.print(temp.value + ", ");
             temp = temp.next;
         }
+        System.out.println();
     }
 }

@@ -62,12 +62,22 @@ public class SinglyLinkedListProgramme {
         int index = linkedListApplication.indexOf(600);
         System.out.println("index: " + index);
 
+        System.out.print("Original linkedlist : ");
+        linkedListApplication.print();
+
+        System.out.print("Reverse linkedlist : ");
+        linkedListApplication.printInReverseOrder();
+        System.out.println();
+
+
         //****************
         // Clearing the list
         //****************
         linkedListApplication.clear();
         size = linkedListApplication.size();
         System.out.println("After clearing size: " + size);
+
+
 
     }
 }
