@@ -36,5 +36,14 @@ public class ArrayApplication {
         arr = new int[]{1, 0, 5, 9, -1};
         arr = arrayProgramme.insertionSort(arr);
         Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        System.out.println();
+
+        //*************
+        // Merge Sort
+        //*************
+        arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4};
+        arr = arrayProgramme.mergeSort(arr, 0, arr.length - 1);
+        Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        System.out.println();
     }
 }
