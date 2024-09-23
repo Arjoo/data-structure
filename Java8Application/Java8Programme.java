@@ -264,12 +264,19 @@ public class Java8Programme {
         //find First non-repeated
         String str = "indian";
         Map.Entry<Character, Long> characterLongEntry = str.chars()
-                .mapToObj(c -> Character.valueOf((char) c))
+                .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .filter(e -> e.getValue() == 1L).findFirst().get();
         System.out.println(characterLongEntry);
+
+
+        //Check palindrome
+        str = "madam";
+        List<String> l = Arrays.asList(str.split(""));
+        System.out.println(l);
+
 
 
     }
