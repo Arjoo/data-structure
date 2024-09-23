@@ -165,7 +165,40 @@ class SinglyLinkedListApplication<E> {
         System.out.print(head.value + ", ");
     }
 
+    public void reverse() {
+        Node<E> current = head;
+        Node<E> next;
+        Node<E> prev = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
 
+    public void reverseRecursive() {
+        head = reverseRecursive(head);
+        print();
+    }
+
+    private Node<E> reverseRecursive(Node<E> head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        Node<E> reverse = reverseRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return reverse;
+
+    }
+
+    private void reverse(Node<E> head) {
+
+
+    }
 
 
     public void print() {

@@ -65,9 +65,27 @@ public class SinglyLinkedListProgramme {
         System.out.print("Original linkedlist : ");
         linkedListApplication.print();
 
+        //****************
+        // Reverse the linked list
+        //****************
+        //System.out.print("Reverse linkedlist : ");
+        //linkedListApplication.reverse();
+        //linkedListApplication.print();
+
+
+        //****************
+        // Recursive Reverse the linked list
+        //****************
         System.out.print("Reverse linkedlist : ");
+        linkedListApplication.reverseRecursive();
+
+
+        //****************
+        // Print Linked list in reverse order
+        //****************
+        /*System.out.print("Reverse linkedlist : ");
         linkedListApplication.printInReverseOrder();
-        System.out.println();
+        System.out.println();*/
 
 
         //****************
