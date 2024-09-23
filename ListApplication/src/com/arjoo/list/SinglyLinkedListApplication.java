@@ -1,6 +1,7 @@
 package com.arjoo.list;
 
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  *  list application
@@ -192,12 +193,13 @@ class SinglyLinkedListApplication<E> {
         head.next = null;
 
         return reverse;
-
     }
 
-    private void reverse(Node<E> head) {
-
-
+    public Optional<E> retrieveFirst() {
+        if(head == null) {
+            return null;
+        }
+        return Optional.of(head.value);
     }
 
 

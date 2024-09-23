@@ -2,6 +2,7 @@ package com.arjoo.list;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class SinglyLinkedListProgramme {
     public static void main(String[] args) {
@@ -76,9 +77,15 @@ public class SinglyLinkedListProgramme {
         //****************
         // Recursive Reverse the linked list
         //****************
-        System.out.print("Reverse linkedlist : ");
-        linkedListApplication.reverseRecursive();
+        // System.out.print("Reverse linkedlist : ");
+        // linkedListApplication.reverseRecursive();
 
+        //****************
+        // Retrieve first element from the list
+        //****************
+
+        Optional<Integer> retrieveFirst = linkedListApplication.retrieveFirst();
+        retrieveFirst.ifPresent(System.out::println);
 
         //****************
         // Print Linked list in reverse order
