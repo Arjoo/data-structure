@@ -115,5 +115,13 @@ public class ArrayApplication {
         arr = arrayProgramme.arrangeNegativePositive(arr);
         Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
+
+        //*************
+        // Swap zero, one and two
+        //*************
+        arr = new int[]{0, 1, 2, 0, 1, 2};
+        arr = arrayProgramme.swapZeroOneTwo(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
     }
 }

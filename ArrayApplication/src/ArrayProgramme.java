@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
 public class ArrayProgramme {
 
@@ -170,7 +169,7 @@ public class ArrayProgramme {
         int l = arr[arr.length - 1];
         leaders.add(l);
         for (int i = arr.length - 2; i >= 0; i--) {
-            if(arr[i] > l) {
+            if (arr[i] > l) {
                 l = arr[i];
                 leaders.add(l);
             }
@@ -189,6 +188,31 @@ public class ArrayProgramme {
             }
         }
         return arr;
+    }
+
+    public int[] swapZeroOneTwo(int[] arr) {
+        int l = 0, m = 0, h = arr.length - 1;
+        while (m <= h) {
+            switch (arr[m]) {
+                case 0 -> {
+                    swap(arr, l, m);
+                    l++;
+                    m++;
+                }
+                case 1 -> m++;
+                case 2 -> {
+                    swap(arr, m, h);
+                    h--;
+                }
+            }
+        }
+        return arr;
+    }
+
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
 }
