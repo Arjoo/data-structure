@@ -276,14 +276,14 @@ public class ArrayProgramme {
     }
 
     public int findFirstRepeated(int[] arr) {
-        Map.Entry<Integer, Long> integerLongEntry = Arrays.stream(arr).boxed()
+        Map.Entry<Integer, Long> firstRepeated = Arrays.stream(arr).boxed()
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .filter(e -> e.getValue() > 1)
                 .findFirst()
                 .get();
-        return integerLongEntry.getKey();
+        return firstRepeated.getKey();
     }
 
 }
