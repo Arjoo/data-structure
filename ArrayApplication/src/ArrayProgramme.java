@@ -113,5 +113,40 @@ public class ArrayProgramme {
         return i+1;
     }
 
+    public int[] rotate(int[] arr, int k) {
+
+        k = k > arr.length  ? k - arr.length : k;
+        int[] temp = new int[k];
+        System.arraycopy(arr, 0, temp, 0, k);
+        int j=0;
+
+        for(int i= k; i<arr.length ; i++, j++) {
+            arr[j] = arr[i];
+        }
+        for(int i = 0; i<temp.length; i++, j++) {
+            arr[j] = temp[i];
+        }
+        return arr;
+    }
+
+    public int[] reverse(int[] arr) {
+        for(int i=0, j=arr.length-1; i<j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
+    }
+
+    public int largest(int[] arr) {
+        int largest = Integer.MIN_VALUE;
+        for(int i : arr) {
+            if(largest < i) {
+                largest = i;
+            }
+        }
+        return largest;
+    }
+
 
 }

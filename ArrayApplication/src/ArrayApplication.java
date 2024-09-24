@@ -1,6 +1,4 @@
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
 
 public class ArrayApplication {
     public static void main(String[] args) {
@@ -15,7 +13,7 @@ public class ArrayApplication {
         //*************
         // Binary Search
         //*************
-        boolean binary = arrayProgramme.binarySearch(new int[]{1, 3, 5, 7, 9} , 0, 4, 9);
+        boolean binary = arrayProgramme.binarySearch(new int[]{1, 3, 5, 7, 9}, 0, 4, 9);
         System.out.println(binary);
 
         //*************
@@ -23,19 +21,19 @@ public class ArrayApplication {
         //*************
         int[] arr = new int[]{1, 3, 5, 9, 7};
         arr = arrayProgramme.bubbleSort(arr);
-        Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
 
         arr = new int[]{1, 0, 5, 9, -1};
         arr = arrayProgramme.bubbleSort(arr);
-        Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
         //*************
         // Insertion Sort
         //*************
         arr = new int[]{1, 0, 5, 9, -1};
         arr = arrayProgramme.insertionSort(arr);
-        Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
 
         //*************
@@ -43,7 +41,7 @@ public class ArrayApplication {
         //*************
         arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4};
         arr = arrayProgramme.mergeSort(arr, 0, arr.length - 1);
-        Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
 
         //*************
@@ -51,7 +49,38 @@ public class ArrayApplication {
         //*************
         arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4, 7};
         arr = arrayProgramme.quickSort(arr, 0, arr.length - 1);
-        Arrays.stream(arr).forEach(e -> System.out.print(e +", "));
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
+
+        //*************
+        // Rotate an array
+        //*************
+        arr = arrayProgramme.rotate(arr, 2);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4, 7};
+        arr = arrayProgramme.rotate(arr, 11);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        //*************
+        // Reverse an array
+        //*************
+        arr = new int[]{1, 2, 3, 4};
+        arr = arrayProgramme.reverse(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        //*************
+        // Find largest value in the array
+        //*************
+        arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4, 7};
+        int largest = arrayProgramme.largest(arr);
+        System.out.println("largest value is : " + largest);
+
+        arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4, 7, 20};
+        largest = arrayProgramme.largest(arr);
+        System.out.println("largest value is : " + largest);
     }
 }
