@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringJoiner;
+
 public class ArrayProgramme {
 
     public boolean linearSearch(int[] arr, int elem) {
@@ -98,39 +102,39 @@ public class ArrayProgramme {
 
     private int partition(int[] arr, int l, int r) {
         int pivot = arr[r];
-        int i = l -1;
-        for(int j = l; j < r; j++) {
-            if(arr[j] <= pivot) {
+        int i = l - 1;
+        for (int j = l; j < r; j++) {
+            if (arr[j] <= pivot) {
                 i++;
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
-        int temp = arr[i+1];
-        arr[i+1] = arr[r];
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[r];
         arr[r] = temp;
-        return i+1;
+        return i + 1;
     }
 
     public int[] rotate(int[] arr, int k) {
 
-        k = k > arr.length  ? k - arr.length : k;
+        k = k > arr.length ? k - arr.length : k;
         int[] temp = new int[k];
         System.arraycopy(arr, 0, temp, 0, k);
-        int j=0;
+        int j = 0;
 
-        for(int i= k; i<arr.length ; i++, j++) {
+        for (int i = k; i < arr.length; i++, j++) {
             arr[j] = arr[i];
         }
-        for(int i = 0; i<temp.length; i++, j++) {
+        for (int i = 0; i < temp.length; i++, j++) {
             arr[j] = temp[i];
         }
         return arr;
     }
 
     public int[] reverse(int[] arr) {
-        for(int i=0, j=arr.length-1; i<j; i++, j--) {
+        for (int i = 0, j = arr.length - 1; i < j; i++, j--) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
@@ -140,13 +144,51 @@ public class ArrayProgramme {
 
     public int largest(int[] arr) {
         int largest = Integer.MIN_VALUE;
-        for(int i : arr) {
-            if(largest < i) {
+        for (int i : arr) {
+            if (largest < i) {
                 largest = i;
             }
         }
         return largest;
     }
 
+    public int[] moveAllZerosAtEnd(int[] arr) {
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
+                index++;
+            }
+        }
+        return arr;
+    }
+
+    public List<Integer> leaders(int[] arr) {
+        List<Integer> leaders = new ArrayList<>();
+        int l = arr[arr.length - 1];
+        leaders.add(l);
+        for (int i = arr.length - 2; i >= 0; i--) {
+            if(arr[i] > l) {
+                l = arr[i];
+                leaders.add(l);
+            }
+        }
+        return leaders;
+    }
+
+    public int[] arrangeNegativePositive(int[] arr) {
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                int temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
+                index++;
+            }
+        }
+        return arr;
+    }
 
 }

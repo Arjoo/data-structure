@@ -1,4 +1,8 @@
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Stream;
 
 public class ArrayApplication {
     public static void main(String[] args) {
@@ -82,5 +86,34 @@ public class ArrayApplication {
         arr = new int[]{1, 0, 5, 9, -1, 10, 3, 4, 7, 20};
         largest = arrayProgramme.largest(arr);
         System.out.println("largest value is : " + largest);
+
+        //*************
+        // Reverse an array
+        //*************
+        arr = new int[]{0, 2, 0, 3, 0, 4};
+        arr = arrayProgramme.moveAllZerosAtEnd(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        arr = new int[]{1, 5, 9, 0, 2, 0, 3, 0, 4};
+        arr = arrayProgramme.moveAllZerosAtEnd(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        //*************
+        // Find leaders
+        //*************
+        arr = new int[]{16, 17, 4, 3, 5, 2};
+        List<Integer> leaders = arrayProgramme.leaders(arr);
+        leaders.stream().sorted(Collections.reverseOrder()).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        //*************
+        // Reverse an array
+        //*************
+        arr = new int[]{-1, 2, 5, -3, -8, 4};
+        arr = arrayProgramme.arrangeNegativePositive(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
     }
 }
