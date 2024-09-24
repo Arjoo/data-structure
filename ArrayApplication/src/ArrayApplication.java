@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class ArrayApplication {
     public static void main(String[] args) {
@@ -152,6 +153,38 @@ public class ArrayApplication {
 
         majorityElement = arrayProgramme.majorityElement(new int[]{3});
         System.out.println("majorityElement  : " + majorityElement );
+
+        //*************
+        // Missing number
+        //*************
+        int missingNUmber = arrayProgramme.findMissingNUmber(new int[]{1, 2, 4, 6, 3, 7, 8}, 8);
+        System.out.println("missingNUmber  : " + missingNUmber );
+
+        missingNUmber = arrayProgramme.findMissingNUmber(new int[]{1, 2, 3, 5}, 5);
+        System.out.println("missingNUmber  : " + missingNUmber );
+
+        //*************
+        // Find Duplicates
+        //*************
+        List<Map.Entry<Integer, Long>> findDuplicates = arrayProgramme.findDuplicates(new int[]{1, 2, 3, 6, 3, 6, 1});
+        findDuplicates.forEach(e -> System.out.print(e.getKey() + ", "));
+        System.out.println();
+
+        findDuplicates = arrayProgramme.findDuplicates(new int[]{1, 2, 3, 4 ,3});
+        findDuplicates.forEach(e -> System.out.print(e.getKey() + ", "));
+        System.out.println();
+
+        //*************
+        // Find first repeated
+        //*************
+        int firstRepeated = arrayProgramme.findFirstRepeated(new int[]{1, 3, 1,2, 3, 6, 3, 6, 1});
+        System.out.println("firstRepeated : " + firstRepeated);
+
+        firstRepeated = arrayProgramme.findFirstRepeated(new int[]{6, 1, 3,2, 3, 6, 3, 6, 1});
+        System.out.println("firstRepeated : " + firstRepeated);
+
+        firstRepeated = arrayProgramme.findFirstRepeated(new int[]{2, 1, 4, 3, 4, 3, 6, 1});
+        System.out.println("firstRepeated : " + firstRepeated);
 
     }
 }

@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ArrayProgramme {
 
@@ -254,6 +255,35 @@ public class ArrayProgramme {
                 count++;
         }
         return count > arr.length / 2 ? candidate : -1;
+    }
+
+    public int findMissingNUmber(int[] arr, int n) {
+        int sum1 = (n * (n+1))/2;
+        int sum2 = 0;
+        for(int i : arr) {
+            sum2 += i;
+        }
+        return sum1 - sum2;
+    }
+
+    public List<Map.Entry<Integer, Long>> findDuplicates(int[] arr) {
+        return Arrays.stream(arr).boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(e -> e.getValue() > 1)
+                .toList();
+    }
+
+    public int findFirstRepeated(int[] arr) {
+        Map.Entry<Integer, Long> integerLongEntry = Arrays.stream(arr).boxed()
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(e -> e.getValue() > 1)
+                .findFirst()
+                .get();
+        return integerLongEntry.getKey();
     }
 
 }
