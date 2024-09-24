@@ -234,4 +234,26 @@ public class ArrayProgramme {
         return merge;
     }
 
+    //Moore Algorithm
+    public int majorityElement(int[] arr) {
+        int candidate = -1;
+        int count = 0;
+        for (int i : arr) {
+            if (count == 0) {
+                candidate = i;
+                count++;
+            } else if (i == candidate)
+                count++;
+            else
+                count--;
+        }
+
+        count = 0;
+        for (int i : arr) {
+            if (i == candidate)
+                count++;
+        }
+        return count > arr.length / 2 ? candidate : -1;
+    }
+
 }

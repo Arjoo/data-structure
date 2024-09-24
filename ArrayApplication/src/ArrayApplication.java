@@ -137,5 +137,21 @@ public class ArrayApplication {
         arr = arrayProgramme.merge(new int[]{1, 2, 3, 20}, new int[]{7, 8, 9, 50});
         Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
+
+        //*************
+        // Majority Element
+        //*************
+        int majorityElement = arrayProgramme.majorityElement(new int[]{1, 2, 3});
+        System.out.println("majorityElement  : " + majorityElement );
+
+        majorityElement = arrayProgramme.majorityElement(new int[]{1, 1, 2, 1, 3, 5, 1});
+        System.out.println("majorityElement  : " + majorityElement );
+
+        majorityElement = arrayProgramme.majorityElement(new int[]{3, 3, 4, 2, 4, 4, 2, 4});
+        System.out.println("majorityElement  : " + majorityElement );
+
+        majorityElement = arrayProgramme.majorityElement(new int[]{3});
+        System.out.println("majorityElement  : " + majorityElement );
+
     }
 }
