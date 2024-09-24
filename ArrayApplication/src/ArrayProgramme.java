@@ -215,4 +215,23 @@ public class ArrayProgramme {
         arr[j] = temp;
     }
 
+    public int[] merge(int[] a, int[] b) {
+        int[] merge = new int[a.length + b.length];
+        int i = 0, j = 0, k = 0;
+        while (i < a.length && j < b.length) {
+            if (a[i] < b[j])
+                merge[k++] = a[i++];
+            else
+                merge[k++] = b[j++];
+        }
+
+        while (i < a.length)
+            merge[k++] = a[i++];
+
+        while (j < b.length)
+            merge[k++] = b[j++];
+
+        return merge;
+    }
+
 }

@@ -1,8 +1,6 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.StringJoiner;
-import java.util.stream.Stream;
 
 public class ArrayApplication {
     public static void main(String[] args) {
@@ -121,6 +119,22 @@ public class ArrayApplication {
         //*************
         arr = new int[]{0, 1, 2, 0, 1, 2};
         arr = arrayProgramme.swapZeroOneTwo(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        arr = new int[]{0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+        arr = arrayProgramme.swapZeroOneTwo(arr);
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        //*************
+        // Merge two sorted arrays
+        //*************
+        arr = arrayProgramme.merge(new int[]{1, 2, 3}, new int[]{7, 8, 9});
+        Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
+        System.out.println();
+
+        arr = arrayProgramme.merge(new int[]{1, 2, 3, 20}, new int[]{7, 8, 9, 50});
         Arrays.stream(arr).forEach(e -> System.out.print(e + ", "));
         System.out.println();
     }
