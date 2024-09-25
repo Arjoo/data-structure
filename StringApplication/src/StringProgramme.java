@@ -32,12 +32,16 @@ public class StringProgramme {
 
 
     public boolean anagram(String str1, String str2) {
+        if(str1 == null || str2 == null) {
+            return Boolean.FALSE;
+        }
+
         Map<Character, Integer> map = new HashMap<>();
-        for(Character ch : str1.toCharArray()) {
+        for(Character ch : str1.toLowerCase().toCharArray()) {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-        for(Character ch : str2.toCharArray()) {
+        for(Character ch : str2.toLowerCase().toCharArray()) {
             map.put(ch, map.getOrDefault(ch, 0) - 1);
         }
 
