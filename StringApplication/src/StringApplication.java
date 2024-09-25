@@ -16,6 +16,10 @@ public class StringApplication {
         String reverse = stringProgramme.reverse("indian");
         System.out.println("reverse : " + reverse);
 
+        //******************
+        // Anagram
+        //******************
+
 
 
     }
