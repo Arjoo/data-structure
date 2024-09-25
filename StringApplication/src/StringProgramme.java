@@ -32,6 +32,21 @@ public class StringProgramme {
 
 
     public boolean anagram(String str1, String str2) {
-        return Boolean.FALSE;
+        Map<Character, Integer> map = new HashMap<>();
+        for(Character ch : str1.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        for(Character ch : str2.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) - 1);
+        }
+
+        for(Map.Entry<Character, Integer> e : map.entrySet()) {
+            if(e.getValue() != 0) {
+                return Boolean.FALSE;
+            }
+        }
+
+        return Boolean.TRUE;
     }
 }

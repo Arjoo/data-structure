@@ -20,6 +20,12 @@ public class StringApplication {
         // Anagram
         //******************
 
+        boolean anagram = stringProgramme.anagram("listen", "silent");
+        System.out.println("anagram : " + anagram);
+
+        anagram = stringProgramme.anagram("listen", "silentr");
+        System.out.println("anagram : " + anagram);
+
 
 
     }
