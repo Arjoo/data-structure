@@ -29,4 +29,9 @@ public class StringProgramme {
         }
         return String.valueOf(chars);
     }
+
+
+    public boolean anagram(String str1, String str2) {
+        return Boolean.FALSE;
+    }
 }
