@@ -1,7 +1,9 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StringProgramme {
 
@@ -56,5 +58,21 @@ public class StringProgramme {
 
     public String removeDuplicate(String str) {
         return Arrays.stream(str.split("")).distinct().collect(Collectors.joining());
+    }
+
+    public String reverseWordInSentence(String str) {
+        String output = "";
+        String temp = "";
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch != ' ') {
+                temp = ch + temp;
+            } else {
+                output += temp + ch;
+                temp = "";
+            }
+        }
+        output += temp;
+        return output;
     }
 }

@@ -33,5 +33,12 @@ public class StringApplication {
         String removeDuplicate = stringProgramme.removeDuplicate("arjoo");
         System.out.println("removeDuplicate : " + removeDuplicate);
 
+        //******************
+        // Reverse Word in Sentence
+        //******************
+
+        String reverseWordInSentence = stringProgramme.reverseWordInSentence("Hi, this is arjoo");
+        System.out.println("reverseWordInSentence : " + reverseWordInSentence);
+
     }
 }
