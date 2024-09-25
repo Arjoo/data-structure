@@ -27,6 +27,6 @@ public class StringProgramme {
             chars[i] = chars[j];
             chars[j] = temp;
         }
-        return chars.toString();
+        return String.valueOf(chars);
     }
 }

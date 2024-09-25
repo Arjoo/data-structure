@@ -6,6 +6,10 @@ public class StringApplication {
         String firstRepeated = stringProgramme.firstRepeated("india");
         System.out.println("firstRepeated : " + firstRepeated);
 
+        String reverse = stringProgramme.reverse("indian");
+        System.out.println("reverse : " + reverse);
+
+
 
     }
 }
