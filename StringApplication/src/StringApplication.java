@@ -26,7 +26,12 @@ public class StringApplication {
         anagram = stringProgramme.anagram("listen", "silentr");
         System.out.println("anagram : " + anagram);
 
+        //******************
+        // Remove Duplicate
+        //******************
 
+        String removeDuplicate = stringProgramme.removeDuplicate("arjoo");
+        System.out.println("removeDuplicate : " + removeDuplicate);
 
     }
 }

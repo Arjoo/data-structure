@@ -53,4 +53,8 @@ public class StringProgramme {
 
         return Boolean.TRUE;
     }
+
+    public String removeDuplicate(String str) {
+        return Arrays.stream(str.split("")).distinct().collect(Collectors.joining());
+    }
 }
