@@ -1,22 +1,22 @@
 package com.arjoo.list;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Optional;
 
 /**
- *  list application
- *
+ * list application
  */
 class SinglyLinkedListApplication<E> {
     Node<E> head;
-    
+
     public void add(E value) {
         Node<E> node = new Node<>(value);
-        if(head == null) {
+        if (head == null) {
             head = node;
         } else {
             Node<E> temp = head;
-            while(temp.next != null) {
+            while (temp.next != null) {
                 temp = temp.next;
             }
             temp.next = node;
@@ -41,21 +41,21 @@ class SinglyLinkedListApplication<E> {
 
 
     public void add(int index, E value) {
-        if(index < 0) {
+        if (index < 0) {
             throw new IndexOutOfBoundsException("Index can not be negative");
         }
 
-        if(index > size()) {
+        if (index > size()) {
             throw new IndexOutOfBoundsException("Index can not be more than its size");
         }
 
-        if(value == null) {
+        if (value == null) {
             throw new NullPointerException("Null value are not allowed");
         }
 
         Node<E> temp = head;
         int position = 0;
-        while (position < index-1) {
+        while (position < index - 1) {
             temp = temp.next;
             position++;
         }
@@ -79,24 +79,24 @@ class SinglyLinkedListApplication<E> {
 
     public void addAll(int index, Collection<? extends E> elements) {
 
-        if(index < 0) {
+        if (index < 0) {
             throw new IndexOutOfBoundsException("Index can not be negative");
         }
 
-        if(index > size()) {
+        if (index > size()) {
             throw new IndexOutOfBoundsException("Index can not be more than its size");
         }
 
 
         Node<E> temp = head;
         int position = 0;
-        while (position < index -1){
+        while (position < index - 1) {
             position++;
             temp = temp.next;
         }
         Node<E> node = temp.next;
         for (E element : elements) {
-            if(element == null) {
+            if (element == null) {
                 throw new NullPointerException("Null value are not allowed");
             }
 
@@ -113,7 +113,7 @@ class SinglyLinkedListApplication<E> {
     public boolean contains(E e) {
         Node<E> temp = head;
         while (temp != null) {
-            if(temp.value.equals(e)) {
+            if (temp.value.equals(e)) {
                 return true;
             }
             temp = temp.next;
@@ -122,17 +122,17 @@ class SinglyLinkedListApplication<E> {
     }
 
     public E get(int index) {
-        if(index < 0) {
+        if (index < 0) {
             throw new IndexOutOfBoundsException("Index can not be negative");
         }
 
-        if(index > size()) {
+        if (index > size()) {
             throw new IndexOutOfBoundsException("Index can not be more than its size");
         }
 
         int in = 0;
         Node<E> temp = head;
-        while (in < index-1) {
+        while (in < index - 1) {
             in++;
             temp = temp.next;
         }
@@ -140,11 +140,11 @@ class SinglyLinkedListApplication<E> {
     }
 
     public int indexOf(Object o) {
-        E e = (E)o;
+        E e = (E) o;
         Node<E> temp = head;
         int index = 0;
         while (temp != null) {
-            if(temp.value.equals(e)) {
+            if (temp.value.equals(e)) {
                 return index;
             }
             temp = temp.next;
@@ -159,7 +159,7 @@ class SinglyLinkedListApplication<E> {
     }
 
     private void printInReverseOrder(Node<E> head) {
-        if(head == null) {
+        if (head == null) {
             return;
         }
         printInReverseOrder(head.next);
@@ -185,7 +185,7 @@ class SinglyLinkedListApplication<E> {
     }
 
     private Node<E> reverseRecursive(Node<E> head) {
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         Node<E> reverse = reverseRecursive(head.next);
@@ -196,7 +196,7 @@ class SinglyLinkedListApplication<E> {
     }
 
     public Optional<E> retrieveFirst() {
-        if(head == null) {
+        if (head == null) {
             return null;
         }
         return Optional.of(head.value);
@@ -210,5 +210,56 @@ class SinglyLinkedListApplication<E> {
             temp = temp.next;
         }
         System.out.println();
+    }
+
+    public Node<E> getHead() {
+        return head;
+    }
+
+    public Node<E> middle(Node<E> head) {
+        if (head == null)
+            return null;
+        Node<E> first = head;
+        Node<E> second = head;
+
+        while (second.next != null && second.next.next != null) {
+            first = first.next;
+            second = second.next.next;
+        }
+        return first;
+    }
+
+    public Node<E> mergeSort(Node<E> head, Comparator<Number> comparator) {
+        if (head == null || head.next == null)
+            return head;
+
+        Node<E> middle = middle(head);
+        Node<E> middleNode = middle.next;
+        middle.next = null;
+        Node<E> left = mergeSort(head, comparator);
+        Node<E> right = mergeSort(middleNode, comparator);
+
+        return merge(left, right, comparator);
+    }
+
+    private Node<E> merge(Node<E> left, Node<E> right, Comparator<Number> comparator) {
+        Node<E> result = null;
+        if (left == null)
+            return right;
+        if (right == null)
+            return left;
+
+        if (comparator.compare((Number) left.value, (Number) right.value) <= 0) {
+            result = left;
+            result.next = merge(left.next, right, comparator);
+        } else {
+            result = right;
+            result.next = merge(left, right.next, comparator);
+        }
+        return result;
+    }
+
+    public Node<E> sort(Node<E> head, Comparator<Number> comparator) {
+        return mergeSort(head, comparator);
     }
 }

@@ -1,6 +1,7 @@
 package com.arjoo.list;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -103,6 +104,32 @@ public class SinglyLinkedListProgramme {
         System.out.println("After clearing size: " + size);
 
 
+
+        //*********************
+        // Sort a LinkedList using mergeSort
+        //********************
+        /*System.out.println("Sorting a linked List");
+
+        SinglyLinkedListApplication<Integer> l1= new SinglyLinkedListApplication<>();
+        l1.addAll(Arrays.asList(1, 3, 4, 5, 2, 9, 6));
+        Node<Integer> head = l1.getHead();
+
+        Comparator<Number> comparator = new Comparator<>() {
+            @Override
+            public int compare(Number i1, Number i2) {
+                if(i1.equals(i2))
+                    return 0;
+                else {
+                    return i1.intValue() < i2.intValue() ? -1 : 1;
+                }
+            }
+        };
+        Node<Integer> headOfSortedList = l1.sort(head, comparator);
+        Node<Integer> temp = headOfSortedList;
+        while (temp != null) {
+            System.out.print(temp.value + ", ");
+            temp = temp.next;
+        }*/
 
     }
 }
