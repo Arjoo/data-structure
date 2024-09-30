@@ -186,5 +186,24 @@ public class ArrayApplication {
         firstRepeated = arrayProgramme.findFirstRepeated(new int[]{2, 1, 4, 3, 4, 3, 6, 1});
         System.out.println("firstRepeated : " + firstRepeated);
 
+        //*************
+        // fina second highest
+        //*************
+        int secondHighest = arrayProgramme.secondHighest(new int[]{2, 10, 4, 3, 6, 1});
+        System.out.println("secondHighest: " + secondHighest);
+
+        secondHighest = arrayProgramme.secondHighest(new int[]{2, 10, 4, 3, 6, 1, 11});
+        System.out.println("secondHighest: " + secondHighest);
+
+       // secondHighest = arrayProgramme.secondHighestUsingHeap(new int[]{2, 10, 4, 3, 6, 1, 11}, 2);
+        System.out.println("secondHighest: " + secondHighest);
+
+        secondHighest = arrayProgramme.secondHighestUsingHeap(new int[]{2, 10, 4, 3, 6, 1, 11, 12}, 2);
+        System.out.println("secondHighest: " + secondHighest);
+
+        secondHighest = arrayProgramme.secondHighestUsingHeap(new int[]{2, 10, 4, 3, 6, 1, 11, 12}, 3);
+        System.out.println("secondHighest: " + secondHighest);
+
+
     }
 }

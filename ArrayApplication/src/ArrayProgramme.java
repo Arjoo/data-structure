@@ -258,9 +258,9 @@ public class ArrayProgramme {
     }
 
     public int findMissingNUmber(int[] arr, int n) {
-        int sum1 = (n * (n+1))/2;
+        int sum1 = (n * (n + 1)) / 2;
         int sum2 = 0;
-        for(int i : arr) {
+        for (int i : arr) {
             sum2 += i;
         }
         return sum1 - sum2;
@@ -284,6 +284,40 @@ public class ArrayProgramme {
                 .findFirst()
                 .get();
         return firstRepeated.getKey();
+    }
+
+    public int secondHighest(int[] arr) {
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+        for (int value : arr) {
+            if (first < value) {
+                first = value;
+            }
+        }
+
+        for (int value : arr) {
+            if (second < value && value != first) {
+                second = value;
+            }
+        }
+        return second;
+    }
+
+    public int secondHighestUsingHeap(int[] arr, int kthLargest) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(kthLargest);
+        int i = 0;
+        for (; i < kthLargest; i++) {
+            queue.add(arr[i]);
+        }
+
+        for (; i < arr.length; i++) {
+            if (queue.size() == kthLargest && queue.peek() < arr[i]) {
+                queue.poll();
+                queue.add(arr[i]);
+            }
+        }
+
+        return queue.poll();
     }
 
 }
