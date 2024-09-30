@@ -195,7 +195,7 @@ public class ArrayApplication {
         secondHighest = arrayProgramme.secondHighest(new int[]{2, 10, 4, 3, 6, 1, 11});
         System.out.println("secondHighest: " + secondHighest);
 
-       // secondHighest = arrayProgramme.secondHighestUsingHeap(new int[]{2, 10, 4, 3, 6, 1, 11}, 2);
+        secondHighest = arrayProgramme.secondHighestUsingHeap(new int[]{2, 10, 4, 3, 6, 1, 11}, 2);
         System.out.println("secondHighest: " + secondHighest);
 
         secondHighest = arrayProgramme.secondHighestUsingHeap(new int[]{2, 10, 4, 3, 6, 1, 11, 12}, 2);
