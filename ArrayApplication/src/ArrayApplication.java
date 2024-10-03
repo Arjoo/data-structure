@@ -205,5 +205,14 @@ public class ArrayApplication {
         System.out.println("secondHighest: " + secondHighest);
 
 
+        //*************
+        // Reverse integer value
+        //*************
+        int reverseNumber = arrayProgramme.reverseNumber(12345);
+        System.out.println("reverseNumber : " + reverseNumber);
+
+        reverseNumber = arrayProgramme.reverseNumber(-12345);
+        System.out.println("reverseNumber : " + reverseNumber);
+
     }
 }

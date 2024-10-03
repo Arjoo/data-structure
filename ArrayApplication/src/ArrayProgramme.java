@@ -14,25 +14,26 @@ public class ArrayProgramme {
     }
 
     public boolean binarySearch(int[] arr, int start, int end, int elem) {
-        if (start <= end) {
-            int mid = (start + end) / 2;
-            if (arr[mid] == elem)
-                return Boolean.TRUE;
-            else if (arr[mid] > elem)
-                return binarySearch(arr, start, mid - 1, elem);
-            else
-                return binarySearch(arr, mid + 1, end, elem);
-        }
+       if(start <= end) {
+           int mid = (start + end)/2;
+           if(arr[mid] ==elem) {
+               return Boolean.TRUE;
+           }else if(arr[mid] > elem) {
+               return binarySearch(arr, start, mid -1, elem);
+           } else {
+               return binarySearch(arr, mid+1, end, elem);
+           }
+       }
         return Boolean.FALSE;
     }
 
     public int[] bubbleSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
+        for (int i=0; i<arr.length; i++) {
+            for (int j=0; j<arr.length-1-i; j++) {
+                if(arr[j] > arr[j+1]) {
                     int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
                 }
             }
         }
@@ -316,8 +317,20 @@ public class ArrayProgramme {
                 queue.add(arr[i]);
             }
         }
-
         return queue.poll();
+    }
+
+
+    public int reverseNumber(int number) {
+        int value = number > 0 ? number : -number;
+        StringBuilder response = new StringBuilder();
+        for (int remainder = value % 10; remainder > 0; remainder = value % 10) {
+            response.append(remainder);
+            value = value / 10;
+        }
+        return number > 0
+                ? Integer.parseInt(response.toString())
+                : -Integer.parseInt(response.toString());
     }
 
 }
