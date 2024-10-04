@@ -14,26 +14,26 @@ public class ArrayProgramme {
     }
 
     public boolean binarySearch(int[] arr, int start, int end, int elem) {
-       if(start <= end) {
-           int mid = (start + end)/2;
-           if(arr[mid] ==elem) {
-               return Boolean.TRUE;
-           }else if(arr[mid] > elem) {
-               return binarySearch(arr, start, mid -1, elem);
-           } else {
-               return binarySearch(arr, mid+1, end, elem);
-           }
-       }
+        if (start <= end) {
+            int mid = (start + end) / 2;
+            if (arr[mid] == elem) {
+                return Boolean.TRUE;
+            } else if (arr[mid] > elem) {
+                return binarySearch(arr, start, mid - 1, elem);
+            } else {
+                return binarySearch(arr, mid + 1, end, elem);
+            }
+        }
         return Boolean.FALSE;
     }
 
     public int[] bubbleSort(int[] arr) {
-        for (int i=0; i<arr.length; i++) {
-            for (int j=0; j<arr.length-1-i; j++) {
-                if(arr[j] > arr[j+1]) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
@@ -333,4 +333,25 @@ public class ArrayProgramme {
                 : -Integer.parseInt(response.toString());
     }
 
+
+    public List<Integer> findPrimeNumbers(int number) {
+        List<Integer> primes = new ArrayList<>();
+        for(int i=2; i<number; i++) {
+            boolean isPrime = isPrime(i);
+            if(isPrime) {
+                primes.add(i);
+            }
+        }
+        return primes;
+    }
+
+    private boolean isPrime(int number) {
+        int sqrt = (int)Math.sqrt(number);
+        for(int i=2; i<=sqrt; i++) {
+            if(number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

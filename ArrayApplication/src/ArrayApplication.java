@@ -214,5 +214,10 @@ public class ArrayApplication {
         reverseNumber = arrayProgramme.reverseNumber(-12345);
         System.out.println("reverseNumber : " + reverseNumber);
 
+        //*************
+        // Find prime numbers
+        //*************
+        List<Integer> primeNumbers = arrayProgramme.findPrimeNumbers(10);
+        System.out.println("primeNumbers : " + primeNumbers);
     }
 }
