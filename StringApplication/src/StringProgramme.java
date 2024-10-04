@@ -75,4 +75,27 @@ public class StringProgramme {
         output += temp;
         return output;
     }
+
+    public boolean isPalindrome(String str) {
+        for(int i=0, j=str.length()-1; i<j; i++, j--) {
+            if(str.charAt(i) != str.charAt(j)) {
+                return Boolean.FALSE;
+            }
+        }
+        return Boolean.TRUE;
+    }
+
+    public Map<Character, Integer> countChars(String str) {
+        Map<Character, Integer> map = new HashMap<>();
+        for(int i=0; i<str.length(); i++) {
+            char ch = str.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        return map;
+    }
+
+    public Map<String, Long> countCharsJava8(String str) {
+        return Arrays.stream(str.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
 }

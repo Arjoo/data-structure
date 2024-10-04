@@ -1,4 +1,4 @@
-
+import java.util.Map;
 
 public class StringApplication {
     public static void main(String[] args) {
@@ -39,6 +39,27 @@ public class StringApplication {
 
         String reverseWordInSentence = stringProgramme.reverseWordInSentence("Hi, this is arjoo");
         System.out.println("reverseWordInSentence : " + reverseWordInSentence);
+
+        //******************
+        // Check Palindrome
+        //******************
+
+        boolean isPalindrome = stringProgramme.isPalindrome("EYE");
+        System.out.println("isPalindrome : " + isPalindrome);
+
+        isPalindrome = stringProgramme.isPalindrome("EYES");
+        System.out.println("isPalindrome : " + isPalindrome);
+
+        //******************
+        // Count characters in String
+        //******************
+
+        Map<Character, Integer> map = stringProgramme.countChars("EYE");
+        System.out.println("countChars : " + map);
+
+        Map<String, Long> countCharsJava8 = stringProgramme.countCharsJava8("EYE");
+        System.out.println("countCharsJava8 : " + countCharsJava8);
+
 
     }
 }
