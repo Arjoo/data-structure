@@ -365,5 +365,53 @@ public class ArrayProgramme {
         return max;
     }
 
+    public List<Integer> generateMaxValue(List<Integer> list){
+        list.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer value1, Integer value2) {
+                String x = value1 + "" + value2;
+                String y = value2 + "" + value1;
+                return y.compareTo(x);
+            }
+        });
+        return list;
+    }
+
+    public int reversePolish(String[] str) {
+        Stack<Integer> stack = new Stack<>();
+        String operator = "+-/*";
+        for(String s : str) {
+            if(operator.contains(s)) {
+                switch (s) {
+                    case "+" -> {
+                        int sum = stack.pop() + stack.pop();
+                        stack.push(sum);
+                    }
+                    case "-" -> {
+                        int n1 = stack.pop();
+                        int n2 = stack.pop();
+                        int diff = n2 - n1;
+                        stack.push(diff);
+                    }
+                    case "/" -> {
+                        int n1 = stack.pop();
+                        int n2 = stack.pop();
+                        int divide = n2/n1;
+                        stack.push(divide);
+                    }
+                    case "*" -> {
+                        int multi = stack.pop() * stack.pop();
+                        stack.push(multi);
+                    }
+                }
+
+            } else {
+                int number = Integer.parseInt(s);
+                stack.push(number);
+            }
+        }
+        return stack.pop();
+    }
+
 
 }

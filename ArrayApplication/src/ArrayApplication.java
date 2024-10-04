@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ArrayApplication {
     public static void main(String[] args) {
@@ -225,5 +222,21 @@ public class ArrayApplication {
         //*************
         int max = arrayProgramme.max(new int[]{2, 4, 9, 1, 0, 19});
         System.out.println("max : " + max);
+
+        //*************
+        // Generate Max value
+        //*************
+        List<Integer> list = Arrays.asList(2, 4, 0, 9);
+        List<Integer> maxValue = arrayProgramme.generateMaxValue(list);
+        System.out.println("maxValue : " + maxValue);
+
+        //*************
+        // Reverse polish
+        //*************
+        int reversePolish = arrayProgramme.reversePolish(new String[]{"2", "1", "+", "3", "*"});
+        System.out.println("reversePolish : " + reversePolish);
+
+        reversePolish = arrayProgramme.reversePolish(new String[]{"4", "13", "5", "/", "+"});
+        System.out.println("reversePolish : " + reversePolish);
     }
 }
