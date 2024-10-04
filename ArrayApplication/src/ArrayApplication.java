@@ -157,11 +157,11 @@ public class ArrayApplication {
         //*************
         // Missing number
         //*************
-        int missingNUmber = arrayProgramme.findMissingNUmber(new int[]{1, 2, 4, 6, 3, 7, 8}, 8);
-        System.out.println("missingNUmber  : " + missingNUmber );
+        int missingNumber = arrayProgramme.findMissingNUmber(new int[]{1, 2, 4, 6, 3, 7, 8}, 8);
+        System.out.println("missingNUmber  : " + missingNumber );
 
-        missingNUmber = arrayProgramme.findMissingNUmber(new int[]{1, 2, 3, 5}, 5);
-        System.out.println("missingNUmber  : " + missingNUmber );
+        missingNumber = arrayProgramme.findMissingNUmber(new int[]{1, 2, 3, 5}, 5);
+        System.out.println("missingNUmber  : " + missingNumber );
 
         //*************
         // Find Duplicates
@@ -219,5 +219,11 @@ public class ArrayApplication {
         //*************
         List<Integer> primeNumbers = arrayProgramme.findPrimeNumbers(10);
         System.out.println("primeNumbers : " + primeNumbers);
+
+        //*************
+        // Find Max value
+        //*************
+        int max = arrayProgramme.max(new int[]{2, 4, 9, 1, 0, 19});
+        System.out.println("max : " + max);
     }
 }

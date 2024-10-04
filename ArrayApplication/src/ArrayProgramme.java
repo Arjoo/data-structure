@@ -354,4 +354,16 @@ public class ArrayProgramme {
         }
         return true;
     }
+
+    public int max(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        for(int value : arr) {
+            if(max < value) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
+
 }
