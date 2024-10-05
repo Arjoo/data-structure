@@ -274,8 +274,8 @@ public class Java8Programme {
 
         //Check palindrome
         str = "madam";
-        List<String> l = Arrays.asList(str.split(""));
-        System.out.println(l);
+        String reverse = Arrays.stream(str.split("")).reduce((s, e) -> e + s).get();
+        System.out.println(reverse.equals(str));
 
 
     }
