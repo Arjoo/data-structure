@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StringProgramme {
 
@@ -30,6 +31,10 @@ public class StringProgramme {
             chars[j] = temp;
         }
         return String.valueOf(chars);
+    }
+
+    public String reverseInJava8(String str) {
+        return Arrays.stream(str.split("")).reduce((s, e) -> e + s).get();
     }
 
 

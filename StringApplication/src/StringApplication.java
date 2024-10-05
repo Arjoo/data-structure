@@ -60,6 +60,11 @@ public class StringApplication {
         Map<String, Long> countCharsJava8 = stringProgramme.countCharsJava8("EYE");
         System.out.println("countCharsJava8 : " + countCharsJava8);
 
+        //******************
+        // Reverse using java 8
+        //******************
+        System.out.println("reverse in java 8 : " + stringProgramme.reverseInJava8("apple"));
+
 
     }
 }
