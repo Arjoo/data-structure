@@ -335,7 +335,7 @@ public class Java8Programme {
         System.out.println("Odd parts is :" + oddEven.get(false));
         System.out.println("even parts is :" + oddEven.get(true));
 
-        //find sum od all even number
+        //find sum of all even number
         Integer sumOfEven = oddEven.get(true).stream().reduce(Integer::sum).get();
         System.out.println("Sum of even number : " + sumOfEven);
 
