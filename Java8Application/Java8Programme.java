@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Java8Programme {
@@ -278,5 +279,33 @@ public class Java8Programme {
         System.out.println(reverse.equals(str));
 
 
+        //Print 10 random number
+        Random random = new Random();
+        random.ints(10, 1, 10).boxed().forEach(num -> System.out.print(num + ", "));
+        //OR
+        random.ints(1, 10).limit(10).forEach(num -> System.out.print(num + ", "));
+
+        //Find min
+        IntStream ints = random.ints(10, 1, 10);
+        System.out.println("min is : " + ints.min().getAsInt());
+
+        //fond max
+        ints = random.ints(10, 1, 10);
+        System.out.println("Max is : " + ints.max().getAsInt());
+
+        //find longest string
+        List<String> fruits = Arrays.asList("apple", "banana", "cherry", "date", "grapefruit");
+        Optional<String> maxLength = fruits.stream().max(Comparator.comparingInt(String::length));
+        System.out.println("maxLength : " + maxLength.get());
+
+        //average age of a list of Person
+        List<Person> persons = Arrays.asList(
+                new Person("Alice", 25),
+                new Person("Bob", 30),
+                new Person("Charlie", 35)
+        );
+
+        Double average = persons.stream().collect(Collectors.averagingInt(Person::getAge));
+        System.out.println("Average age is : " + average);
     }
 }
