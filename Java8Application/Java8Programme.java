@@ -339,6 +339,9 @@ public class Java8Programme {
         Integer sumOfEven = oddEven.get(true).stream().reduce(Integer::sum).get();
         System.out.println("Sum of even number : " + sumOfEven);
 
+        //find max value
+        Optional<Integer> maxValue = numbersList.stream().max(Comparator.comparingInt(Integer::valueOf));
+        System.out.println("Max value is : "+ maxValue);
 
         //partition a list of strings into two lists based on their length (less than or equal to 5 characters)
         Map<Boolean, List<String>> partitions = words.stream().collect(Collectors.partitioningBy(elem -> elem.length() <= 5));
