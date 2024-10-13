@@ -330,10 +330,22 @@ public class Java8Programme {
 
         // divide a number into two parts
         List<Integer> numbersList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        Map<Boolean, List<Integer>> twoParts = numbersList.stream().collect(Collectors.partitioningBy(num -> num % 2 == 0));
-        System.out.println("Two parts is :" + twoParts);
-        System.out.println("First parts is :" + twoParts.get(false));
-        System.out.println("Second parts is :" + twoParts.get(true));
+        Map<Boolean, List<Integer>> oddEven = numbersList.stream().collect(Collectors.partitioningBy(num -> num % 2 == 0));
+        System.out.println("Two parts is :" + oddEven);
+        System.out.println("Odd parts is :" + oddEven.get(false));
+        System.out.println("even parts is :" + oddEven.get(true));
+
+        //find sum od all even number
+        Integer sumOfEven = oddEven.get(true).stream().reduce(Integer::sum).get();
+        System.out.println("Sum of even number : " + sumOfEven);
+
+
+        //partition a list of strings into two lists based on their length (less than or equal to 5 characters)
+        Map<Boolean, List<String>> partitions = words.stream().collect(Collectors.partitioningBy(elem -> elem.length() <= 5));
+        System.out.println("partitions is : " + partitions);
+
+
+
 
     }
 }
