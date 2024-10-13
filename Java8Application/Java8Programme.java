@@ -307,5 +307,33 @@ public class Java8Programme {
 
         Double average = persons.stream().collect(Collectors.averagingInt(Person::getAge));
         System.out.println("Average age is : " + average);
+
+        //dept wise total sal
+        Map<Integer, Integer> deptWiseSal = users.stream().collect(Collectors.groupingBy(User::getDeptId, Collectors.summingInt(User::getSalary)));
+        System.out.println("deptWiseSal : "+ deptWiseSal);
+
+
+        //find kth smallest element
+        int k = 4;
+        int[] array = {4, 2, 7, 1, 5, 3, 6};
+        int first = Arrays.stream(array).sorted().skip(k - 1).findFirst().orElse(-1);
+        System.out.println("kth smallest element is : "+ first);
+
+        //find second-highest number
+        Integer secondHighest = Arrays.stream(array).boxed().sorted((a, b) -> b - a).skip(1).findFirst().orElse(-1);
+        System.out.println("secondHighest is : " +secondHighest);
+
+        // Frequency of each word
+        List<String> words = Arrays.asList("apple", "banana", "apple", "cherry", "banana", "apple");
+        Map<String, Long> frequency = words.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println("frequency is : " + frequency);
+
+        // divide a number into two parts
+        List<Integer> numbersList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        Map<Boolean, List<Integer>> twoParts = numbersList.stream().collect(Collectors.partitioningBy(num -> num % 2 == 0));
+        System.out.println("Two parts is :" + twoParts);
+        System.out.println("First parts is :" + twoParts.get(false));
+        System.out.println("Second parts is :" + twoParts.get(true));
+
     }
 }
